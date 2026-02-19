@@ -1,11 +1,12 @@
-const validator = require('validator')
-const { name, add } = require('./utils.js');
-const getNotes = require('./notes.js');
 const chalk = require('chalk');
+const getNotes = require('./notes.js');
 
-const sum = add(5, 10);
-console.log(name);
-console.log(sum);
-console.log(getNotes());
-console.log(validator.isEmail('test@example.com'));
-console.log(chalk.bold.green('Success!'));
+const command = process.argv[2];
+
+if (command === 'add') {
+    console.log('Adding note!');
+} else if (command === 'remove') {
+    console.log('Removing note!');
+} else {
+    console.log('Command not recognized!');
+}
