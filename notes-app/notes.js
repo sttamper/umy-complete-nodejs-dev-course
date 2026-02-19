@@ -17,7 +17,17 @@ const addNote = (title, body) => {
     } else {
         console.log('Note title taken!');
     }
+}
 
+const removeNote = (title) => {
+    const notes = loadNotes();
+    const notesToKeep = notes.filter((note) => note.title !== title);
+    if (notes.length > notesToKeep.length) {
+        saveNotes(notesToKeep);
+        console.log('Note removed!');
+    } else {
+        console.log('No note found!');
+    }
 }
 
 const loadNotes = () => {
@@ -37,5 +47,6 @@ const saveNotes = (notes) => {
 
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 };
